@@ -22,16 +22,19 @@ function Home() {
 
     return (
         <div>
-            <div class="fixed inset-0 z-[-1] overflow-hidden">
-                <div class="bg-layer1 absolute inset-0"></div>
-                <div class="bg-layer2 absolute inset-0"></div>
-                <div class="bg-layer3 absolute inset-0"></div>
+            <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                    Welcome, {loggedIn}
+                </h1>
+
+                <ToastContainer />
+
+                <button
+                    onClick={handleLogout}
+                    class="mt-4 px-6 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300">
+                    Logout
+                </button>
             </div>
-
-            <h1>Welcome {loggedIn}</h1>
-            <ToastContainer />
-            <button onClick={handleLogout}>Logout</button>
-
         </div>
     )
 }

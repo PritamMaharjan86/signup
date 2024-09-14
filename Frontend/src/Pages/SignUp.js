@@ -45,22 +45,31 @@ function SignUp() {
 
             });
             const result = await response.json();
-            const { success, error } = result;
+            const { success, error, message } = result;
             if (success) {
                 toast.success("Access Granted");
                 setTimeout(() => {
                     navigate('/login');
                 }, 1000)
             }
-            else if (error) {
-                const details = error?.details[0].message;
-                toast.error(details)
+            else {
+                // If an error exists, show the error message from the server response
+                if (message) {
+                    toast.warning(message);
+                } else if (error && error.details) {
+                    const details = error.details[0].message;
+                    toast.error(details);
+                } else {
+                    toast.error("Something went wrong. Please try again.");
+                }
             }
+
 
         }
 
-        catch (err) {
+        catch (error) {
             toast.error("All the fields are required to be filled!");
+
         }
 
     }
