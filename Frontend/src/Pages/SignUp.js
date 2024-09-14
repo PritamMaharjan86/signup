@@ -56,7 +56,7 @@ function SignUp() {
                 const details = error?.details[0].message;
                 toast.error(details)
             }
-            
+
         }
 
         catch (err) {
@@ -68,14 +68,22 @@ function SignUp() {
 
     return (
         <div>
-            <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700 text-center drop-shadow-lg my-8">
+            <div class="fixed inset-0 z-[-1] overflow-hidden">
+                <div class="bg-layer1 absolute inset-0"></div>
+                <div class="bg-layer2 absolute inset-0"></div>
+                <div class="bg-layer3 absolute inset-0"></div>
+            </div>
+            <h1 className="text-5xl font-extrabold text-white text-center drop-shadow-lg my-8">
                 Signup
             </h1>
 
             <form className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg m-10" onSubmit={handleSignup}>
+
                 <div className="grid grid-cols-1 gap-5">
+
                     <ToastContainer />
                     <div>
+
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                             Name
                         </label>
@@ -127,7 +135,7 @@ function SignUp() {
 
                         </div>
                         <button onSubmit={handleSignup} className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 mx-auto block m-5">
-                            Submit
+                            SignUp
                         </button>
 
                     </div>
