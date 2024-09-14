@@ -56,6 +56,7 @@ function SignUp() {
                 const details = error?.details[0].message;
                 toast.error(details)
             }
+            
         }
 
         catch (err) {
