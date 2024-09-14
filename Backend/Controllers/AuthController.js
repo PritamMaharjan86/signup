@@ -34,10 +34,10 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email });
-        const errMsg = 'Authentication failed... Email or password incorrect!'
+        const errMsg = 'Authentication failed, Email or password incorrect!'
         if (!user) {
             return res.status(403)
-                .json({ message: errMsg, success: false });
+                .json({ message: 'User does not exists..', success: false });
         }
 
         const isPasswordEqual = await bcrypt.compare(password, user.password);
