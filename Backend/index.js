@@ -15,7 +15,7 @@ app.get('/server', (req, res) =>
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://backend-lilac-seven-15.vercel.app/'
+    origin: 'https://signup-beryl-eta.vercel.app/'
 }));
 app.use('/auth', AuthRouter);
 
