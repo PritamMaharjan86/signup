@@ -14,9 +14,7 @@ app.get('/server', (req, res) =>
     res.send('Express on vercel'))
 
 app.use(bodyParser.json());
-app.use(cors({
-    origin: 'https://signup-beryl-eta.vercel.app/'
-}));
+app.use(cors());
 app.use('/auth', AuthRouter);
 
 app.listen(PORT || process.env.PORT, () => {
