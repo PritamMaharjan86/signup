@@ -14,7 +14,9 @@ app.get('/server', (req, res) =>
     res.send('Express on vercel'))
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors({
+    origin: 'https://backend-lilac-seven-15.vercel.app/'
+}));
 app.use('/auth', AuthRouter);
 
 app.listen(PORT || process.env.PORT, () => {
