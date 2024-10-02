@@ -10,7 +10,7 @@ require('dotenv').config();
 require('./Models/Database')
 
 const corsOptions = {
-    origin: 'https://signup-beryl-eta.vercel.app',
+    origin: 'https://signup-beryl-eta.vercel.app/login/',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],  // Add Content-Type and other headers if needed
 };
