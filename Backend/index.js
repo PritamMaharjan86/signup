@@ -11,7 +11,7 @@ require('./Models/Database')
 
 const corsOptions = {
     origin: 'https://signup-beryl-eta.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],  // Add Content-Type and other headers if needed
 };
 
@@ -20,7 +20,9 @@ app.get('/server', (req, res) =>
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
-app.options('/auth/login', cors(corsOptions));  // Handle preflight requests
+app.options('*', cors(corsOptions));  // Handle preflight requests
+app.options('/auth/login', cors(corsOptions));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/auth', AuthRouter);
 
