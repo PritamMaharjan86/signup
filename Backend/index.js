@@ -20,6 +20,8 @@ app.get('/server', (req, res) =>
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.options('/auth/login', cors(corsOptions));  // Handle preflight requests
+
 app.use('/auth', AuthRouter);
 
 app.listen(PORT || process.env.PORT, () => {
