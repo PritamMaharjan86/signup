@@ -34,12 +34,11 @@ function Login() {
         }
 
         try {
-            const url = 'https://backend-lilac-seven-15.vercel.app/';
+            const url = 'http://localhost:3001/auth/login';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer token', 
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(login)
 
