@@ -34,7 +34,7 @@ function Login() {
         }
 
         try {
-            const url = 'https://backend-lilac-seven-15.vercel.app/auth/login';
+            const url = 'https://backend-lilac-seven-15.vercel.app/';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
