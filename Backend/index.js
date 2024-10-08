@@ -14,7 +14,7 @@ require('dotenv').config();
 require('./Models/Database');
 
 
-app.get('/server', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Server is running now...');
 });
 
