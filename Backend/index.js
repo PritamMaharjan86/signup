@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const PORT = 3001;
 const AuthRouter = require('./Routes/AuthRouter');
@@ -14,7 +15,7 @@ require('dotenv').config();
 require('./Models/Database');
 
 
-app.get('/', (req, res) => {
+app.get('/server', (req, res) => {
     res.send('Server is running now...');
 });
 
