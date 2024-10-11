@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
+
 const cors = require('cors');
 const PORT = 3001;
 const AuthRouter = require('./Routes/AuthRouter');
