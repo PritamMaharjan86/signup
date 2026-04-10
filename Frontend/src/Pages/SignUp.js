@@ -34,7 +34,7 @@ function SignUp() {
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
-    localStorage.setItem("pendingEmail", signup.email);
+
     const { name, email, password } = signup;
 
     if (!name || !email || !password) {

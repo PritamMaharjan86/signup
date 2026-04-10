@@ -4,20 +4,13 @@ import {
   signupValidation,
   loginValidation,
 } from "../Middlewares/AuthValidation.js";
-import {
-  signup,
-  login,
-  verifyEmail,
-  resendVerification,
-} from "../Controllers/AuthController.js";
+import { signup, login } from "../Controllers/AuthController.js";
 import User from "../Models/User.js";
 
 const router = express.Router();
 
 router.post("/login", loginValidation, login);
 router.post("/signup", signupValidation, signup);
-router.get("/verify-email/:token", verifyEmail);
-router.post("/resend-verification", resendVerification);
 
 router.post("/delete-account", async (req, res) => {
   const { email } = req.body;
