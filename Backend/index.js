@@ -1,28 +1,28 @@
-const express = require("express");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import AuthRouter from "./Routes/AuthRouter.js";
+import "./Models/Database.js";
+
+dotenv.config();
+
 const app = express();
-const bodyParser = require("body-parser");
-
-const cors = require("cors");
-
 const PORT = 3001;
-const AuthRouter = require("./Routes/AuthRouter");
+
 const corsConfig = {
   origin: "*",
   credentials: false,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
-require("dotenv").config();
-require("./Models/Database");
-app.use(cors());
+app.use(cors(corsConfig));
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.get("/server", (req, res) => {
   res.send("Server is running now...");
 });
-
-app.use(bodyParser.json());
-app.use(cors(corsConfig));
 
 app.use("/auth", AuthRouter);
 
