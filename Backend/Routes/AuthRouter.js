@@ -1,18 +1,23 @@
-const {
+import express from "express";
+import bcrypt from "bcryptjs";
+import {
   signupValidation,
   loginValidation,
-} = require("../Middlewares/AuthValidation");
-const { signup, login } = require("../Controllers/AuthController");
-const router = require("express").Router();
+} from "../Middlewares/AuthValidation.js";
+import {
+  signup,
+  login,
+  verifyEmail,
+  resendVerification,
+} from "../Controllers/AuthController.js";
+import User from "../Models/User.js";
 
-const User = require("../Models/User");
-const bcrypt = require("bcryptjs/dist/bcrypt");
+const router = express.Router();
 
 router.post("/login", loginValidation, login);
-
 router.post("/signup", signupValidation, signup);
-
 router.get("/verify-email/:token", verifyEmail);
+router.post("/resend-verification", resendVerification);
 
 router.post("/delete-account", async (req, res) => {
   const { email } = req.body;
@@ -38,25 +43,21 @@ router.post("/delete-account", async (req, res) => {
 router.post("/change-password", async (req, res) => {
   const { email, oldPassword, newPassword } = req.body;
 
-  //to make sure all the fields are filled up
   if (!email || !oldPassword || !newPassword) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
   try {
-    //to find out if there is user with the same username
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    //to check if the old password match to the user's original password
     const isMatch = await bcrypt.compare(oldPassword, user.password);
     if (!isMatch) {
       return res.status(401).json({ error: "Incorrect old password" });
     }
 
-    //to change the password and save it
     const salt = await bcrypt.genSalt(10);
     const hashedNewPassword = await bcrypt.hash(newPassword, salt);
     user.password = hashedNewPassword;
@@ -69,4 +70,4 @@ router.post("/change-password", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

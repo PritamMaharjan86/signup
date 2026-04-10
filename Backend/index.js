@@ -1,33 +1,31 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
-const cors = require('cors');
+const cors = require("cors");
+
 const PORT = 3001;
-const AuthRouter = require('./Routes/AuthRouter');
+const AuthRouter = require("./Routes/AuthRouter");
 const corsConfig = {
-    origin: '*',
-    credentials: false,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "*",
+  credentials: false,
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
-require('dotenv').config();
-require('./Models/Database');
+require("dotenv").config();
+require("./Models/Database");
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
-app.get('/server', (req, res) => {
-    res.send('Server is running now...');
+app.get("/server", (req, res) => {
+  res.send("Server is running now...");
 });
-
 
 app.use(bodyParser.json());
 app.use(cors(corsConfig));
 
-
-app.use('/auth', AuthRouter);
-
+app.use("/auth", AuthRouter);
 
 app.listen(process.env.PORT || PORT, () => {
-    console.log(`Server is running on ${process.env.PORT || PORT}`);
+  console.log(`Server is running on ${process.env.PORT || PORT}`);
 });
