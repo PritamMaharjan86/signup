@@ -15,7 +15,7 @@ const ProfileManager = ({ isOpen, toggleDropdown }) => {
     return (
         <div
             className={`
-        fixed top-0 left-0 h-full w-72 bg-black shadow-lg border-r border-gray-600 z-50 rounded-tr-xl rounded-br-xl
+        fixed top-0 left-0 h-full w-72 bg-yellow-100 shadow-lg border-r border-gray-600 z-50 rounded-tr-xl rounded-br-xl
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}
@@ -25,19 +25,19 @@ const ProfileManager = ({ isOpen, toggleDropdown }) => {
                     className='w-10 h-10 rounded-full'
                     src='https://res.cloudinary.com/dedpvue13/image/upload/v1753342651/avatar_s3hqft.avif'
                     alt='Avatar'
-                />    <p className="text-lg font-bold text-white">Welcome, {loggedIn}</p>
+                />    <p className="text-lg font-bold text-black">Welcome, {loggedIn}</p>
                 <button
                     onClick={toggleDropdown}
-                    className="text-white text-xl hover:text-red-500"
+                    className="text-black text-xl hover:text-red-500"
                 >
                     ✕
                 </button>
             </div>
 
-            <div className="p-4 text-white">
-                <div className="mb-4"><DeleteAccount email={email} /></div>
-                <div className="mb-4"><ChangePassword email={email} /></div>
-                <div><Logout /></div>
+            <div className="p-3 text-black">
+                <div className="m-1"><DeleteAccount email={email} /></div>
+                <div className="m-1"><ChangePassword email={email} /></div>
+                <div className='m-1'><Logout /></div>
             </div>
         </div>
     );

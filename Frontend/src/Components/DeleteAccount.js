@@ -25,7 +25,7 @@ function DeleteAccount({ email }) {
 
             if (!res.ok) {
                 toast.error(data.error || "Server error");
-            } else {
+            } else { 
                 toast.success(data.message);
                 // Clear user session and navigate to login
                 localStorage.removeItem("token");
@@ -41,10 +41,10 @@ function DeleteAccount({ email }) {
     };
 
     return (
-        <div className="mt-4">
+        <div>
             <button
                 onClick={handleDelete}
-                className="text-white flex items-center gap-3"
+                className="text-black flex items-center p-1 gap-3 hover:bg-black hover:bg-opacity-25 hover:rounded-md hover:w-full "
             >
                 <AiOutlineUserDelete />
                 Delete Account

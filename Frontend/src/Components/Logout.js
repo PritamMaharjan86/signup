@@ -18,11 +18,10 @@ const Logout = () => {
 
 
     return (
-        <div className="mt-4">
-
+        <div>
             <button
                 onClick={handleLogout}
-                className="text-white flex items-center gap-3 mr-1"
+                className="text-black flex items-center p-1 gap-3 hover:bg-black hover:bg-opacity-25 hover:rounded-md hover:w-full"
             >
                 <FiLogOut />
                 Log Out

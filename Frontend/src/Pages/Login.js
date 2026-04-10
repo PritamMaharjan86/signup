@@ -110,7 +110,7 @@ function Login() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-yellow-100  p-4">
+        <div className="min-h-screen flex items-center justify-center bg-yellow-100 p-4">
             {loading ? <Loader /> : <p></p>}
             <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-10">
                 <form className="w-full" onSubmit={handleLogin}>

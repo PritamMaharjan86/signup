@@ -49,9 +49,9 @@ function ChangePassword({ email }) {
     };
 
     return (
-        <div className="mt-4">
+        <div>
 
-            <button className="text-white flex items-center gap-3" onClick={togglePassword} > <RiLockPasswordLine />
+            <button className="text-black flex items-center p-1 gap-3 hover:bg-black hover:bg-opacity-25 hover:rounded-md hover:w-full   " onClick={togglePassword} > <RiLockPasswordLine />
                 Change Password</button>
 
             {isOpen && (
